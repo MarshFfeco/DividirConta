@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DividirConta.MainPage"
+              Title="Dividir a Conta">
+
+    <Border
+        Margin="15"
+        StrokeThickness="0">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="15" />
+        </Border.StrokeShape>
+
+    <Grid
+        RowDefinitions=".3*, .7*"
+        RowSpacing="15"
+        ColumnDefinitions="1*">
+
+        <Grid
+            BackgroundColor="DarkRed"
+            Grid.Row="0" 
+            Grid.Column="0"
+            ColumnDefinitions=".5*, .5*"
+            RowDefinitions=".2*, .4*, .4*" >
+            
+            <Label 
+                Grid.ColumnSpan="2" 
+                Grid.Row="0" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Text="Total por Pessoa"
+                FontAttributes="Bold"/>
+            
+            <Label 
+                x:Name="lblTotal"
+                Grid.Column="0"
+                Grid.Row="1"
+                Grid.RowSpan="3"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Text="R$0.00"
+                FontSize="Large"
+                TextColor="Yellow"/>
+            
+            <Label 
+                x:Name="lblSubTotal"
+                Grid.Column="1" 
+                Grid.Row="1" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Text="Sub Total &#10;R$0.00"/>
+            <Label 
+                x:Name="lblGorjeta"
+                Grid.Column="1" 
+                Grid.Row="2" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Text="Gorjeta &#10;R$0.00"/>
+        </Grid>
+        <Grid 
+            Padding="8"
+            BackgroundColor="DarkRed"
+            Grid.Row="1" 
+            Grid.Column="0"
+            ColumnDefinitions="1*, 1*, 1*, 1*"
+            ColumnSpacing="8"
+            RowDefinitions="1*, 1*, 1*, 1*, 1*" >
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Text="Conta: R$" />
+            <Entry
+                Completed="txtConta_Completed"
+                x:Name="txtConta"
+                Grid.Row="0"
+                Grid.Column="1" 
+                Grid.ColumnSpan="3"
+                VerticalOptions="Center"
+                Keyboard="Numeric"
+                BackgroundColor="Gray"/>
+
+            <Label 
+                Grid.Row="1" 
+                Grid.Column="0"
+                    VerticalOptions="Center"
+                Text="Gojeta&#10;Percentual" />
+            <Button 
+                Clicked="Button_Clicked"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Text="10%"
+                FontAttributes="Bold" />
+            <Button 
+                Clicked="Button_Clicked"
+                Grid.Row="1"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                Text="20%"
+                FontAttributes="Bold" />
+            <Button 
+                Clicked="Button_Clicked"
+                Grid.Row="1"
+                Grid.Column="3"
+                VerticalOptions="Center"
+                Text="30%"
+                FontAttributes="Bold" />
+                
+            <Label 
+                x:Name="lblGorjetaPer"
+                Grid.Row="2"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                Text="Gorjeta: 0%" />
+            <Slider 
+                x:Name="sldGorjeta"
+                ValueChanged="Slider_ValueChanged"
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                VerticalOptions="Center"
+                Maximum="50"/>
+
+            <Label 
+                Grid.Row="3"
+                VerticalOptions="Center"
+                Text="Dividir Por:" />
+            <Button 
+                Clicked="Button_Clicked_Menos"
+                Grid.Row="3"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Text="-"
+                FontAttributes="Bold" />
+            <Label 
+                x:Name="lblPessoas"
+                Grid.Row="3"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="Large"
+                BackgroundColor="Gray"
+                Text="1" />
+            <Button 
+                Clicked="Button_Clicked_Mais"
+                Grid.Row="3"
+                Grid.Column="3"
+                VerticalOptions="Center"
+                Text="+"
+                FontAttributes="Bold" />
+
+            <Button
+                Clicked="Button_Clicked_Iniciar"
+                Grid.Row="4" 
+                Grid.ColumnSpan="4"
+                FontSize="Medium" 
+                Text="Iniciar" />
+        </Grid>
+    </Grid>
+    </Border>
+</ContentPage>
